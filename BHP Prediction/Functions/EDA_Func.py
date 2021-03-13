@@ -4,14 +4,14 @@
 @mail : abdelkarim.majdoub92@gmail.com
 """
 
-
+import pandas as pd
+import numpy as np
+import math
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def half_corr_heatmap (dataframe, title=None, file=None):
-    import pandas as pd
-    import numpy as np
-    import math
-    import matplotlib.pyplot as plt
-    import seaborn as sns
+    
 
     sns.set_style('whitegrid')
     plt.figure(figsize=(10,10))
