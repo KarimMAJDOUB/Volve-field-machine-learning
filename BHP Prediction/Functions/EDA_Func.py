@@ -31,4 +31,17 @@ def half_corr_heatmap (dataframe, title=None, file=None):
     
     return
 
-
+def corr_target(dataframe, target, title = None, file = None):
+    plt.figure(figsize=(4,6))
+    sns.set(font_scale=1)
+    
+    sns.heatmap(dataframe.corr()[[target]].sort_values(target, ascending = False)[1:], annot = True, 
+                cmap = 'coolwarm')
+    
+    if title: plt.title(f'\n{title}\n', fontsize=18)
+    plt.xlabel('')
+    plt.ylabel('')
+    if file: plt.savefig(file, bbox_inches= 'tight')
+    plt.show();
+    
+    return
