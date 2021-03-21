@@ -45,3 +45,31 @@ def corr_target(dataframe, target, title = None, file = None):
     plt.show();
     
     return
+
+def Histog(dataframe, cols =1, file = None):
+    
+    rows = math.ceil(len(dataframe.columns)/cols)
+    width = 5*cols
+    height = 5*rows
+    
+    fig, ax = plt.subplots(nrows = rows,
+                           ncols = cols,
+                           figsize= (width, height))
+    
+    colors = ['blue', 'red', 'green', 'grey', 'black', 'goldenrod', 'darkorange']
+    ax = ax.ravel()
+    
+    for i, column in enumerate(dataframe.columns):
+        ax[i].hist(dataframe[column], color = colors[i % len(colors)],alpha = 1)
+        ax[i].set_title(f'{dataframe[column].name}')
+        ax[i].set_ylabel('Observations')
+        ax[i].set_xlabel('')
+        
+    #fig.suptitle('\nHistograms', size=24)
+    fig.tight_layout()
+    fig.subplots_adjust(bottom =0, top=0.88)
+    
+    if file: plt.savefig(file, bbox_inches ='tight')
+    plt.show()
+    
+    return
