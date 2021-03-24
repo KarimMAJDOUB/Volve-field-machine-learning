@@ -56,7 +56,7 @@ def Histog(dataframe, cols =1, file = None):
                            ncols = cols,
                            figsize= (width, height))
     
-    colors = ['blue', 'red', 'green', 'grey', 'black', 'goldenrod', 'darkorange']
+    colors = ['blue', 'red', 'green', 'grey', 'black', 'goldenrod', 'darkorange', 'yellow', 'm']
     ax = ax.ravel()
     
     for i, column in enumerate(dataframe.columns):
