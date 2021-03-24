@@ -73,3 +73,32 @@ def Histog(dataframe, cols =1, file = None):
     plt.show()
     
     return
+
+def Boxplot_Func(dataframe, cols =1, file = None):
+    rows = math.ceil(len(dataframe.columns)/cols)
+    width = 5*cols
+    height = 4*rows
+    
+    fig, ax = plt.subplots(nrows = rows,
+                           ncols = cols,
+                           figsize= (width, height))
+    plt.subplots_adjust(wspace =0.3, hspace =0.3)
+    ax =ax.ravel()
+    
+    for i, column in enumerate (dataframe.columns):
+        ax[i].boxplot(dataframe[column])
+        
+        ax[i].set_title(f'{dataframe[column].name}')
+        ax[i].set_ylabel('')
+        ax[i].set_xlabel('')
+        ax[i].tick_params(labelbottom=False)
+        
+    fig.suptitle('\n Boxplots', size = 20)
+    fig.tight_layout()
+    fig.subplots_adjust(bottom =0, top =0.88)
+    
+    if file:
+        plt.savefig(file, bbox_inches= 'tight')
+    plt.show()
+    
+    return
